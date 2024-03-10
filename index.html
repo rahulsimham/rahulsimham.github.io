@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Rahul Vegesna" />
+    <meta name="description" content="CV" />
+
+    <title>rahulsimham</title>
+
+     <style type="text/css">
+
+        /* Reset all paddings */
+        *, *::before, *::after{ margin: 0; padding: 0; box-sizing: inherit; }
+
+        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
+        
+        /* Top Navigator */
+        /* Add a black background color to the top navigation */
+        .topnav { background-color: #333; overflow: hidden; }
+        /* Style the links inside the navigation bar */
+        .topnav a { float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;}
+        /* Change the color of links on hover */
+        .topnav a:hover { background-color: #ddd; color: black; }
+        /* Add a color to the active/current link */
+        .topnav a.active { background-color: #04AA6D; color: white; }
+
+        /* Class */
+        .clear { clear: both; }
+        
+        /* ID */
+        #page-wrap { width: 1000px; margin: 40px auto 60px; }
+        #pic { float: right; margin: -30px 0 0 0; }
+        #objective { width: 90%; margin-left: 5%; }
+        
+        
+        /* Text elements */ 
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; margin-right:0em;}
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+        p { margin: 0 0 16px 0; text-align:justify }
+        
+        /* Link */ 
+        a { color: #4a4a4a; text-decoration: none; border-bottom: 1px dotted #999; }
+        a:hover { border-bottom-style: solid; color: black; }
+        
+        /* List */
+        ul { margin: 0 0 32px 17px; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 10%; float: left; height: 100px; border-right: 1px solid #999;  }
+        dd { width: 80%; float: right ; }
+        dd.clear { float: none; margin: 0; height: 15px; }
+     </style>
+</head>
+
+<body>
+
+<!--
+    <div class="topnav">
+        <a class="active" href="#work">Work</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+    </div> 
+-->
+    <div id="#page-wrap">
+        <dl>
+            <div id="contact-info" class="vcard">
+        
+                    
+                <h class="fn">Rahulsimham Vegesna, Ph.D.</h1>
+                <h4>Bioinformatics Scientist</h3><br />
+                <p>
+                    Email: <a class="email" href="">v.rahul.simham at gmail.com</a><br />
+                    <a href="https://github.com/rahulsimham/"><img src="./static/github-mark.png" height="33" style="margin-right:1em;" border="0"></a>
+                    <a href="https://twitter.com/rahul_vegesna" target="_blank"><img src="./static/twitter-logo.svg" height="33" style="margin-right:1em;" border="0"></a>
+                    <a href="https://scholar.google.com.br/citations?user=MThf5MUAAAAJ" target="_blank"><img src="./static/google-scholar.svg" height="33" style="margin-right:1em;" border="0"></a>
+                    <a href="https://www.linkedin.com/in/rahulsimham-vegesna-74809b22" target="_blank"><img src="./static/linkedin.svg" height="33" style="margin-right:1em;" border="0"></a>
+                </p>
+            </div>
+
+            <dd class="clear"></dd>
+            <div id="objective">
+                <p style="text-indent: 1em;"> I am trained as a bioinformatician and worked on a wide variety of projects covering cancer,
+                    immunology and evolutionary biology. Experienced in developing bioinformatic tools, machine learning
+                    models and analyzing large-scale multiomic datasets. Proficient in an array of bioinformatic tools and
+                    packages available through both R and python programming languages. Experienced in handling large
+                    datasets and working on cloud and high performance computing clusters. Have a good understanding
+                    of basic biochemistry, statistics, and immunology.</p>
+            </div>
+            
+            <div class="clear"></div>
+
+            <dt id="work">Experience</dt>
+            <dd>                   
+                <h2>Scientist II, Bioinformatics and Data Science</h2>
+                <p><strong>Institution:</strong> <a href="https://gritstonebio.com/platforms/" target="_blank">Gritstone Bio, Boston, MA, USA</a><br />
+                   <strong>Period:</strong> April 2022 <strong>-</strong> Present<br />
+                    <strong>Key workstreams:</strong>
+                    <ul style="margin-top:-1em">
+                        <li>Lead developer and analyst on discovery of shared non-canonical neoantigens (e.g., Alt. splicing, nuORFs);</li>
+                        <ul>
+                            <li>Performed comprehensive literature reviews and identified public databases containing
+                                processed tumor and normal samples (TCGA, GTEx, CCLE, etc.);</li>
+                            <li>Replicated database-specific pipelines in-house to process hundreds of in-house
+                                datasets;</li>
+                            <li>Implemented pipelines to mine both public and in-house genomic databases, identified
+                                tumor specific shared events across patients.(e.g., frameshift mutations, alternative
+                                splicing, lncRNA, etc);</li>
+                            <li>Collaborated with Immunology, Proteomics Mass-Spec, and NGS teams to perform
+                                immunopeptidomic validations;</li>
+                        </ul>
+                        <li>Lead bioinformatics analyst on single cell transcriptomics studies;</li>
+                        <ul>
+                            <li>Implemented nextflow pipeline which handles 10x single-cell gene expression (DGE) and T cell receptor (TCR) sequencing FASTQ files from multiple
+                                time points;</li>
+                            <li>Implemented DGE modules that would process DGE and TCR data independently, and integrate processed TCR and DGE data for visualization;</li>
+                            <li>Utilized the pipeline to analyze clinical samples and discovery of TCR-reacting to
+                                antigens of interest;</li>
+                        </ul>
+                    </ul>
+                </p>
+
+                <h2>Postdoctoral Fellow</h2>
+                <p><strong>Institution:</strong> <a href="https://ccr.cancer.gov/cancer-data-science-laboratory" target="_blank">Cancer Data Science Lab., National Cancer Institute, Bethesda, Maryland, USA</a><br />
+                   <strong>Period:</strong> April 2020 <strong>-</strong> April 2022<br />
+                    <strong>Key workstreams:</strong>
+                    <ul style="margin-top:-1em">
+                        <li> Predicting patient treatment response and resistance via single-cell transcriptomics of their tumors;</li>
+                        <ul>
+                            <li>Co-developed a pipeline to build drug response models which can predict patient treatment response based on their single cell RNAseq data and its applications;</li>
+                            <li>Built machine learning models from large-scale pharmacological screens performed in cancer cell lines(PRISM, GDSC) where both bulk and single-cell expression are available to predict
+                                drug response at single cell resolution;</li>
+                            <li>Applied the machine learning models to predict the response to single and combination treatments in cancer cell lines and patient-tumor-derived primary cells based on their single-cell
+                                expression profiles;</li>
+                            <li>Applied the machine learning models to stratify responders vs. non-responders to combination therapies in recently published clinical trials;</li>
+                            <li>Predicted personalized drug combinations that target distinct tumor clones to improve patient response;</li>
+                        </ul>
+                        <li>The landscape of receptor-mediated precision cancer combination therapy via a single-cell perspective;</li>
+                        <ul>
+                            <li>Collaborated with computer science graduate students to maintain the MadHitter software and analyze multiple scRNAseq cancer datasets to understand the landscape of combination therapy. (resulted in
+                                publication)
+                            <li>Collaborated with computer science graduate students to maintain the MadHitter software;</li>
+                                Contributed to the documentation of the software and installation;</li>
+                            <li>Analyzed multiple scRNAseq datasets to identify the optimal set of surface receptor gene targets which maximize the killing of cancer cells and limit the killing of normal cells at a patient
+                                and cohort level</li>
+                            <li>Identified cell surface receptor genes which are lowly expressed in healthy tissue by mining GTEX and Human Protein Atlas</li>
+                            <li>Generated reports summarizing the results to collaborators and presented the methods in different conferences and meetings</li>
+                        </ul>
+                    </ul>
+                </p>
+
+                <h2>Associate Applications System Analyst</h2>
+                <p><strong>Institution:</strong> <a href="https://www.mdanderson.org/research/departments-labs-institutes/departments-divisions/bioinformatics-and-computational-biology.html" target="_blank">Bioinformatics and Computational Biology Department, M.D. Anderson Cancer Center,
+                    Houston, Texas, USA</a><br />
+                   <strong>Period:</strong> June 2012 <strong>-</strong> June 2013<br />
+                    <strong>Key workstreams:</strong>
+                    <ul style="margin-top:-1em">
+                        <li> Co-implemented Pipeline for RNASeq Data Analysis (PRADA) to estimate gene expression and identify
+                            gene fusion events;</li>
+                        <ul>
+                            <li>Develop standalone version of PRADA (Pipeline for RNASeq Data Analysis);</li>
+                            <li>Create and maintain documentation and Sourceforge page for PRADA. Add new modules and
+                                analyze data samples;</li>
+                            <li>Helped analyze multiple TCGA datasets, which resulted in multiple publications;</li>
+                        </ul>
+                    </ul>
+                </p>
+
+            </dd>
+
+            <dd class="clear"></dd>
+            
+            <dt id="education">Education</dt>
+            <dd>
+                <h2>Ph.D. in Bioinformatics and Genomics</h2>
+                <p><strong>Institution:</strong> The Pennsylvania State University, State College, PA, USA<br />
+                    <strong>Title:</strong> Evolution of Y Chromosome Ampliconic Genes in Great Apes<br />
+                    <strong>Period:</strong> Aug 2013 <strong>-</strong> Jan 2020<br /></p>
+                <h2>M.Sc. in Bioinformatics</h2>
+                <p><strong>Institution:</strong> The University of Texas at El Paso, El Paso, TX, USA <br />
+                    <strong>Period:</strong> Aug 2009 <strong>-</strong> Aug 2011<br/></p>
+                   
+                <h2>B.Tech. in Bioinformatics</h2>
+                <p><strong>Institution:</strong> Sathyabama University, Chennai, TN, India<br />
+                    <strong>Period:</strong> May 2005 <strong>-</strong> May 2009<br /> </p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Thesis projects</dt>
+            <dd>
+            
+                <ol style="margin-top:-1em">
+                    <li>Dosage regulation, and variation in gene expression and copy number of human Y chromosome
+                        ampliconic genes</li>
+                    <ul>
+                        <li>Studied the relationship between the copy number of Y chromosome ampliconic gene families and their
+                            expression in humans;</li>
+                        <li>Developed a novel computational tool Ampliconic Copy Number Estimator (AmpliCoNE) that
+                            utilizes read sequencing depth information from whole genome sequencing data to estimate Y
+                            ampliconic gene copy number per family;</li>
+                        <li>Analyzed whole genome sequencing and testis expression data from GTEx to estimate the copy
+                            number and gene expression of ampliconic genes;</li>
+                        <li>Determined the Y haplogroup of the GTEx samples using Yhaplo;</li>
+                    </ul>
+
+                    <li>Ampliconic genes on the great ape Y chromosome</li>
+                    <ul>
+                        <li>Collaborated with biologists to study the relationship between the copy number of Y chromosome
+                            ampliconic gene families and their expression in great apes;</li>
+                        <li>Constructed Y chromosome specific great ape phylogenetic tree;</li>
+                        <li>Assembled the transcripts of Y ampliconic gene families for each great ape species and estimated their gene expression;</li>
+                        <li>Tested the conservation of gene expression and copy number of ampliconic gene families
+                            across great apes;</li>
+                    </ul>
+                
+                    <li>Dynamic evolution of great ape Y chromosomes</li>
+                    <ul>
+                        <li>Co-implemented the project in generating assemblies of bonobo and orangutan Y's from short and long
+                            sequencing reads and aligned them with the publicly available human, chimpanzee, and gorilla Y
+                            assemblies to understand their evolution;</li>
+                        <li>Generated whole chromosome alignments of the great ape Y chromosomes;</li>
+                        <li>Predicted genes in Y chromosome assemblies of bonobo and orangutans using AUGUSTUS;</li>
+                        <li>Reconstructed the Y chromosome gene content evolution in great apes by comparing genes
+                            found in individual species;</li>
+                        <li>Estimated the human and chimpanzee palindromic sequences read depth in bonobo, gorilla and
+                            orangutan Y’s;</li>
+                        <li>Searched for regulatory factor binding sites in human palindromes P6 and P7 using ENCODE
+                            dataset;</li>
+                    </ul>
+                </ol>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Developed tools (a.k.a Portfolio)</dt>
+            <dd>
+                <p><strong><a href="https://github.com/ruppinlab/PERCEPTION">PERCEPTION - <u>PER</u>sonalized single-<u>C</u>ell <u>E</u>xpression-based <u>P</u>lanning for <u>T</u>reatments <u>I</u>n <u>ON</u>cology </a></strong><br />
+                <strong>Description:</strong> R Workbooks for generating drug response prediction models. I developed the pipeline during my posdoc. I left the lab during the publication review process, you will find my name in the publication and not in the public repo. </p>
+                <p><strong><a href="https://github.com/makovalab-psu/AmpliCoNE-tool">AmpliCoNE - <u>Ampli</u>conic <u>Co</u>py <u>N</u>umber <u>E</u>stimator </a></strong><br />
+                <strong>Description:</strong> A tool to estimate the copy number of ampliconic gene families in human Y chromosome using Illumina whole genome sequencing data. I developed the tool as part of my PhD thesis work. Written in Python.</p>
+                <p><strong><a href="http://sourceforge.net/projects/prada/ ">PRADA - <u>P</u>ipeline for <u>R</u>N<u>A</u>Seq <u>D</u>ata <u>A</u>nalysis</a></strong><br />
+                <strong>Description:</strong> End to end pipeline to  process and analyze gene expression estimates, gene fusion identification, and supervised intragenic deletion identification. I was part of the team that developed the pipeline during my tenure at MDACC. Written in Python.</p>
+            </dd>
+            
+            <dd class="clear"></dd>
+
+            <dt>Technical skills</dt>
+            <dd>
+                <p><strong>Statistics:</strong> Strong knowledge of statiscal methods applied to bioinformatics.</p>
+
+                <h2>Programming languanges:</h2>
+                    <ul>
+                    <li><strong>Python</strong></li>
+                        <ul style="margin-bottom:-0.1em;">
+                        <li><i>data analysis libraries (e.g. pysam, biopython, numpy, pandas, matplotlib, scikit-learn, etc.)</i></li>
+                        </ul>
+                    <li><strong>R</strong></li>
+                    <ul style="margin-bottom:-0.1em;">
+                        <li><i>data analysis libraries (e.g. tidyverse, reshape, ggplot2, data.table, caret, DESeq2, fgsea,  etc.)</i></li>
+                        <li><i>single cell analysis libraries (e.g. seurat, harmony, infercnv, scRepertoire, etc.)</i></li>
+                        </ul>
+                    <li><strong>Perl</strong></li>
+                    </ul>
+
+                <h2>Cloud environments:</h2>
+                    <ul>
+                    <li><strong>AWS</strong></li>
+                    </ul>
+
+             
+ 
+                <h2>Pipeline</h2>
+                    <ul>
+                    <li><strong>Nextflow</strong></li>
+                    <li><strong>Docker</strong></li>
+                    <li><strong>Apptainer</strong></li>
+                    </ul>
+            </dd>            
+            <dd class="clear"></dd>
+
+            <dt id="publications">Publications</dt>
+            <dd>
+                <ol>
+                    <li>Sinha S, <strong>Vegesna, R.</strong>, Dhruba SR, Wu W, Lucas Kerr D, Stroganov OV, et al (2022).
+                        <i>Predicting patient treatment response and resistance via single-cell transcriptomics of
+                        their tumors.</i> Biorxiv http://dx.doi.org/10.1101/2022.01.11.475728</li>
+                    <li>Ahmadi S, Sukprasert P, <strong>Vegesna, R.</strong>, Sinha S, Schischlik F, Artzi N, Khuller S, Schaffer
+                        AA, Ruppin E (2022). <i>The Landscape of Receptor-Mediated Precision Cancer
+                        Combination Therapy Via a Single-Cell Perspective.</i> Nature Communications 13.1
+                        (2022): 1613.</li>
+                    <li>Cechova, M., <strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Harris, R. S., Chen, D., Rangavittal, S.,
+                        ... & Makova, K. D. (2020). <i>Dynamic evolution of great ape Y chromosomes.</i> PNAS, 117
+                        (42) 26273-26280;</li>
+                    <li><strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Ryder, O.A., Campos-Sánchez, R., Medvedev, P.,
+                        DeGiorgio, M., Makova, K. D. (2020). <i>Ampliconic genes on the great ape Y
+                        chromosomes: Rapid evolution of copy number but conservation of expression levels.</i>
+                        Genome Biology and Evolution.</li>
+                    <li><strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Medvedev, P., Makova, K. D. (2019). <i>Dosage
+                        regulation, and variation in gene expression and copy number of human Y chromosome
+                        ampliconic genes.</i> PLoS genetics, 15(9), e1008369.</li>
+                    <li>Warris, S., Schijlen, E., van de Geest, H., <strong>Vegesna, R.</strong>, Hesselink, T., te Lintel Hekkert,
+                        B., ... & de Ridder, D. (2018). <i>Correcting palindromes in long reads after whole-genome
+                        amplification.</i> BMC genomics, 19(1), 798.</li>
+                    <li>Torres-García, W., Zheng, S., Sivachenko, A., <strong>Vegesna, R.</strong>, Wang, Q., Yao, R., ... &
+                        Verhaak, R. G. (2014). <i>PRADA: pipeline for RNA sequencing data analysis.</i>
+                        Bioinformatics, 2014.</li>
+                    <li>Yoshihara, K., Wang, Q., Torres-García, W., Zheng, S., <strong>Vegesna, R.</strong>, Kim, H., &
+                        Verhaak, R. G. (2014). <i>The landscape and therapeutic relevance of cancer associated
+                        transcript fusions.</i> Oncogene, 2014.</li>
+                    <li>Zheng, S., Fu, J., <strong>Vegesna, R.</strong>, Mao, Y., Heathcock, L. E., Torres-Garcia, W., ... &
+                        Verhaak, R. G. (2013). <i>A survey of intragenic breakpoints in glioblastoma identifies a
+                        distinct subset associated with poor survival.</i> Genes & development, 2013.</li>
+                    <li>Yoshihara, K., Shahmoradgoli, M., Martínez, E., <strong>Vegesna, R.</strong>, Kim, H., Torres-Garcia,
+                        W., ... & Verhaak, R. G. (2013). <i>Inferring tumour purity and stromal and immune cell
+                        admixture from expression data.</i> Nature communications, 2013.</li>
+                    <li>Cancer Genome Atlas Research Network. (2013).<i> Comprehensive molecular
+                        characterization of clear cell renal cell carcinoma.</i> Nature, 2013.</li>
+                    <li>Brennan, C. W., Verhaak, R. G., McKenna, A., Campos, B., Noushmehr, H., Salama, S.
+                        R., ... & Wilson, R. (2013). <i>The somatic genomic landscape of glioblastoma.</i> Cell, 2013.
+                    <li>Sirimulla, S., Bailey, J. B., <strong>Vegesna, R.</strong>, & Narayan, M. (2013). <i>Halogen Interactions in
+                        Protein–Ligand Complexes: Implications of Halogen Bonding for Rational Drug Design.</i>
+                        Journal of chemical information and modeling, 2013.</li>
+                    <li>Yehdego, D. T., Zhang, B., Taufer, M., Kodimala, V. K. R., <strong>Vegesna, R.</strong>, Viswakula, S.,
+                        ... & Leung, M. Y. (2012, October). <i>Secondary structure predictions for long RNA
+                        sequences based on inversion excursions: preliminary results.</i> In Proceedings of the
+                        ACM Conference on Bioinformatics, Computational Biology and Biomedicine (pp.
+                        545-547). ACM 2012.</li>
+
+                </ol>
+            </dd>
+            <div class="clear"></div>
+            
+            <p>  
+                
+            
+            </p>
+        </dl>
+    </div>
+</body>
+
+</html>
