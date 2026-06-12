@@ -1,345 +1,694 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Rahul Vegesna" />
-    <meta name="description" content="CV" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rahulsimham Vegesna, Ph.D. — Bioinformatics Scientist</title>
+<meta name="author" content="Rahulsimham Vegesna" />
+<meta name="description" content="Rahulsimham Vegesna, Ph.D. — Bioinformatics scientist building pipelines, ML models, and tools across cancer, immunology, and evolutionary genomics. 14 publications, 3 open-source tools." />
+<!-- Open Graph / sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Rahulsimham Vegesna, Ph.D. — Bioinformatics Scientist" />
+<meta property="og:description" content="Bioinformatics scientist working across cancer, immunology, and evolutionary genomics. Pipelines, ML models, and open-source tools." />
+<meta property="og:url" content="https://rahulsimham.github.io/" />
+<meta name="twitter:card" content="summary" />
 
-    <title>rahulsimham</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-     <style type="text/css">
+<style>
+  :root {
+    --paper:   #FAFAF7;
+    --paper-2: #F2F1EA;
+    --ink:     #17191C;
+    --ink-soft:#3A3F46;
+    --muted:   #5C6470;
+    --line:    #E5E3D9;
+    --line-2:  #D8D6CB;
+    --accent:  #15616D;
+    --accent-deep: #0E4751;
+    /* nucleotide palette — the page's signature */
+    --base-a:  #3FA66A;
+    --base-t:  #D75A4A;
+    --base-g:  #E0A93B;
+    --base-c:  #3E7CB1;
 
-        /* Reset all paddings */
-        *, *::before, *::after{ margin: 0; padding: 0; box-sizing: inherit; }
+    --maxw: 1080px;
+    --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
 
-        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
-        
-        /* Top Navigator */
-        /* Add a black background color to the top navigation */
-        .topnav { background-color: #333; overflow: hidden; }
-        /* Style the links inside the navigation bar */
-        .topnav a { float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;}
-        /* Change the color of links on hover */
-        .topnav a:hover { background-color: #ddd; color: black; }
-        /* Add a color to the active/current link */
-        .topnav a.active { background-color: #04AA6D; color: white; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-deep); }
+  ::selection { background: rgba(21,97,109,0.16); }
 
-        /* Class */
-        .clear { clear: both; }
-        
-        /* ID */
-        #page-wrap { width: 1000px; margin: 40px auto 60px; }
-        #pic { float: right; margin: -30px 0 0 0; }
-        #objective { width: 90%; margin-left: 5%; }
-        
-        
-        /* Text elements */ 
-        h1 { margin: 0 0 1% 0; padding: 1% 0 1% ; font-size: 36px; font-weight: bold; letter-spacing: -1px; border-bottom: 1px solid #999; margin-right:0em;}
-        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
-        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
-        p { margin: 0 0 16px 0; text-align:justify }
-        
-        /* Link */ 
-        a { color: #4a4a4a; text-decoration: none; border-bottom: 1px dotted #999; }
-        a:hover { border-bottom-style: solid; color: black; }
-        
-        /* List */
-        ul { margin: 0 0 32px 17px; }
-        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 10%; float: left; height: 100px; border-right: 1px solid #999;  }
-        dd { width: 80%; float: right ; }
-        dd.clear { float: none; margin: 0; height: 15px; }
-     </style>
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Sequence ribbon (signature) ---------- */
+  .ribbon {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .ribbon .a { color: var(--base-a); }
+  .ribbon .t { color: var(--base-t); }
+  .ribbon .g { color: var(--base-g); }
+  .ribbon .c { color: var(--base-c); }
+  .ribbon--hero { font-size: 15px; opacity: 0; animation: ribbonIn 0.9s 0.25s ease forwards; }
+  .ribbon--divider { opacity: 0.42; padding: 6px 0; margin: 0; }
+
+  @keyframes ribbonIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 0.95; transform: none; } }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,247,0.86);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
+    height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  }
+  .brand {
+    font-family: var(--display); font-weight: 700; font-size: 17px;
+    letter-spacing: -0.01em; color: var(--ink); display: flex; align-items: center; gap: 10px;
+  }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 2px; background: var(--accent);
+    box-shadow: 3px 0 0 var(--base-a), 6px 0 0 var(--base-t);
+    display: inline-block; flex: none;
+  }
+  .nav-links { display: flex; gap: 6px; align-items: center; }
+  .nav-links a {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+    color: var(--muted); padding: 8px 11px; border-radius: 6px; transition: color .15s, background .15s;
+  }
+  .nav-links a:hover { color: var(--ink); background: var(--paper-2); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-toggle { display: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 78px 0 30px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(38px, 6vw, 60px); line-height: 1.02;
+    letter-spacing: -0.025em; margin: 0 0 6px; color: var(--ink);
+  }
+  .role {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(18px, 2.6vw, 23px); color: var(--ink-soft); margin: 0 0 26px;
+  }
+  .lede { font-size: 18px; max-width: 70ch; color: var(--ink-soft); margin: 0 0 30px; }
+
+  .contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 34px; }
+  .mail-btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--mono); font-size: 13.5px; font-weight: 500;
+    background: var(--ink); color: var(--paper);
+    padding: 11px 17px; border-radius: 8px; transition: background .15s, transform .15s;
+    border: none; cursor: pointer; appearance: none; -webkit-appearance: none;
+  }
+  .mail-btn:hover { background: var(--accent-deep); color: #fff; transform: translateY(-1px); }
+  .socials { display: flex; gap: 4px; }
+  .socials a {
+    width: 40px; height: 40px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); border-radius: 8px; color: var(--ink-soft);
+    transition: border-color .15s, color .15s, transform .15s; background: var(--paper);
+  }
+  .socials a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .socials svg { width: 18px; height: 18px; }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--line); margin-top: 4px; }
+  .stat { padding: 18px 30px 18px 0; margin-right: 30px; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; margin-right: 0; }
+  .stat .n { font-family: var(--display); font-weight: 600; font-size: 26px; color: var(--ink); line-height: 1; }
+  .stat .l { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 7px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 22px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin: 26px 0 26px; }
+  .sec-head .num {
+    font-family: var(--mono); font-size: 12.5px; color: var(--accent); font-weight: 500; padding-top: 4px;
+  }
+  .sec-head h2 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(24px, 3.4vw, 32px);
+    letter-spacing: -0.02em; margin: 0; color: var(--ink);
+  }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+
+  /* ---------- Experience timeline ---------- */
+  .xp { border-left: 2px solid var(--line-2); margin-left: 4px; }
+  .xp-item { position: relative; padding: 0 0 38px 30px; }
+  .xp-item:last-child { padding-bottom: 6px; }
+  .xp-item::before {
+    content: ""; position: absolute; left: -7px; top: 6px;
+    width: 12px; height: 12px; border-radius: 3px; background: var(--accent);
+    border: 2px solid var(--paper);
+  }
+  .xp-period { font-family: var(--mono); font-size: 12.5px; color: var(--muted); letter-spacing: 0.02em; }
+  .xp-role { font-family: var(--display); font-weight: 600; font-size: 20px; margin: 4px 0 2px; color: var(--ink); }
+  .xp-org { font-size: 15.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .xp-org a { font-weight: 600; }
+  .xp ul { margin: 0; padding: 0; list-style: none; }
+  .xp > .xp-item ul > li {
+    position: relative; padding-left: 20px; margin-bottom: 9px; color: var(--ink-soft); font-size: 16px;
+  }
+  .xp ul > li::before {
+    content: ""; position: absolute; left: 2px; top: 11px; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--accent); opacity: 0.55;
+  }
+  .xp ul ul { margin: 9px 0 4px; }
+  .xp ul ul > li { font-size: 14.5px; color: var(--muted); padding-left: 18px; margin-bottom: 6px; }
+  .xp ul ul > li::before {
+    content: ""; top: 9px; left: 0; width: 7px; height: 1px; border-radius: 0;
+    background: var(--line-2); opacity: 1;
+  }
+
+  /* ---------- Tools / portfolio ---------- */
+  .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .tool {
+    border: 1px solid var(--line-2); border-radius: 12px; padding: 22px; background: #fff;
+    display: flex; flex-direction: column; transition: border-color .18s, transform .18s, box-shadow .18s;
+  }
+  .tool:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 30px -18px rgba(21,97,109,0.5); }
+  .tool-name {
+    font-family: var(--display); font-weight: 600; font-size: 18px; margin: 0 0 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tool-name .arrow { color: var(--accent); transition: transform .18s; }
+  .tool:hover .tool-name .arrow { transform: translate(2px,-2px); }
+  .tool-sub { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; margin: 0 0 13px; text-transform: uppercase; }
+  .tool-desc { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+  .tool-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .chip {
+    font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft);
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 3px 9px;
+  }
+
+  /* ---------- Education ---------- */
+  .edu { display: grid; gap: 14px; }
+  .edu-item {
+    display: grid; grid-template-columns: 160px 1fr; gap: 22px; padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .edu-item:first-child { border-top: none; }
+  .edu-period { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-top: 3px; }
+  .edu-deg { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 0 0 3px; }
+  .edu-inst { font-size: 15px; color: var(--ink-soft); margin: 0; }
+  .edu-extra { font-size: 14px; color: var(--muted); margin: 6px 0 0; font-style: italic; }
+
+  /* ---------- Skills ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 22px 30px; }
+  .skill-group h3 {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 12px; font-weight: 600;
+  }
+  .skill-group .tool-tags { margin-top: 0; }
+
+  /* ---------- Publications ---------- */
+  .pub-note { font-size: 14.5px; color: var(--muted); margin: -6px 0 22px; }
+  .pubs { counter-reset: pub; list-style: none; margin: 0; padding: 0; }
+  .pubs li {
+    counter-increment: pub; position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--line);
+    font-size: 15px; color: var(--ink-soft); line-height: 1.55;
+  }
+  .pubs li:first-child { border-top: none; }
+  .pubs li::before {
+    content: counter(pub, decimal-leading-zero);
+    position: absolute; left: 0; top: 16px;
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+  .pubs .me { color: var(--ink); font-weight: 700; }
+  .pubs .ttl { color: var(--ink); }
+  .pubs .venue { color: var(--muted); }
+
+  .sub-head {
+    font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em;
+    color: var(--ink); margin: 34px 0 14px; display: flex; align-items: center; gap: 11px;
+  }
+  .sub-head::before { content: ""; width: 16px; height: 2px; background: var(--accent); display: inline-block; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 40px 0 56px; }
+  .foot-inner { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .foot-inner .socials a { background: var(--paper); }
+  .foot-meta { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column;
+      background: var(--paper); border-bottom: 1px solid var(--line); padding: 10px 28px 18px; gap: 2px;
+    }
+    .nav-links.open a { padding: 11px 4px; }
+    .nav-toggle {
+      display: grid; place-items: center; width: 40px; height: 40px; background: transparent;
+      border: 1px solid var(--line-2); border-radius: 8px; cursor: pointer; color: var(--ink);
+    }
+    .stat { padding-right: 22px; margin-right: 22px; }
+    .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .edu-period { padding-top: 0; }
+    .hero { padding: 50px 0 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+    .ribbon--hero { opacity: 0.95; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
+
+  /* ---------- Print fallback (no PDF button; only if browser-printed) ---------- */
+  @media print {
+    .nav, .ribbon, .nav-toggle, footer .socials { display: none !important; }
+    body { color: #000; }
+    a { color: #000; }
+    .mail-btn { background: none !important; color: #000 !important; padding: 0 !important; }
+    .mail-btn svg { display: none; }
+    .tool:hover { box-shadow: none; transform: none; }
+    .xp-item, .tool, .edu-item, .pubs li { page-break-inside: avoid; }
+  }
+</style>
 </head>
-
 <body>
 
-<!--
-    <div class="topnav">
-        <a class="active" href="#work">Work</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-    </div> 
--->
-    <div id="#page-wrap">
-        <dl>
-            <div id="contact-info" class="vcard">
-        
-                    
-                <h1 class="fn">Rahulsimham Vegesna, Ph.D.</h1>
-                <h3>Bioinformatics Scientist</h3><br />
-                <p>
-                    Email: <a class="email" href="">v.rahul.simham at gmail.com</a><br />
-                    <a href="https://github.com/rahulsimham/"><img src="./static/github-mark.png" height="33" style="margin-right:1em;" border="0"></a>
-                    <a href="https://twitter.com/rahul_vegesna" target="_blank"><img src="./static/twitter-logo.svg" height="33" style="margin-right:1em;" border="0"></a>
-                    <a href="https://scholar.google.com.br/citations?user=MThf5MUAAAAJ" target="_blank"><img src="./static/google-scholar.svg" height="33" style="margin-right:1em;" border="0"></a>
-                    <a href="https://www.linkedin.com/in/rahulsimham-vegesna-74809b22" target="_blank"><img src="./static/linkedin.svg" height="33" style="margin-right:1em;" border="0"></a>
-                </p>
-            </div>
-
-            <dd class="clear"></dd>
-            <div id="objective">
-                <p style="text-indent: 1em;"> I am trained as a bioinformatician and worked on a wide variety of projects covering cancer,
-                    immunology and evolutionary biology. Experienced in developing bioinformatic tools, machine learning
-                    models and analyzing large-scale multiomic datasets. Proficient in an array of bioinformatic tools and
-                    packages available through both R and python programming languages. Experienced in handling large
-                    datasets and working on cloud and high performance computing clusters. Have a good understanding
-                    of basic biochemistry, statistics, and immunology.</p>
-            </div>
-            
-            <div class="clear"></div>
-
-            <dt id="work">Experience</dt>
-            <dd>                   
-                <h2>Scientist II, Bioinformatics and Data Science</h2>
-                <p><strong>Institution:</strong> <a href="https://gritstonebio.com/platforms/" target="_blank">Gritstone Bio, Boston, MA, USA</a><br />
-                   <strong>Period:</strong> April 2022 <strong>-</strong> Present<br />
-                    <strong>Key workstreams:</strong>
-                    <ul style="margin-top:-1em">
-                        <li>Lead developer and analyst on discovery of shared non-canonical neoantigens (e.g., Alt. splicing, nuORFs);</li>
-                        <ul>
-                            <li>Performed comprehensive literature reviews and identified public databases containing
-                                processed tumor and normal samples (TCGA, GTEx, CCLE, etc.);</li>
-                            <li>Replicated database-specific pipelines in-house to process hundreds of in-house
-                                datasets;</li>
-                            <li>Implemented pipelines to mine both public and in-house genomic databases, identified
-                                tumor specific shared events across patients.(e.g., frameshift mutations, alternative
-                                splicing, lncRNA, etc);</li>
-                            <li>Collaborated with Immunology, Proteomics Mass-Spec, and NGS teams to perform
-                                immunopeptidomic validations;</li>
-                        </ul>
-                        <li>Lead bioinformatics analyst on single cell transcriptomics studies;</li>
-                        <ul>
-                            <li>Implemented nextflow pipeline which handles 10x single-cell gene expression (DGE) and T cell receptor (TCR) sequencing FASTQ files from multiple
-                                time points;</li>
-                            <li>Implemented DGE modules that would process DGE and TCR data independently, and integrate processed TCR and DGE data for visualization;</li>
-                            <li>Utilized the pipeline to analyze clinical samples and discovery of TCR-reacting to
-                                antigens of interest;</li>
-                        </ul>
-                    </ul>
-                </p>
-
-                <h2>Postdoctoral Fellow</h2>
-                <p><strong>Institution:</strong> <a href="https://ccr.cancer.gov/cancer-data-science-laboratory" target="_blank">Cancer Data Science Lab., National Cancer Institute, Bethesda, Maryland, USA</a><br />
-                   <strong>Period:</strong> April 2020 <strong>-</strong> April 2022<br />
-                    <strong>Key workstreams:</strong>
-                    <ul style="margin-top:-1em">
-                        <li> Predicting patient treatment response and resistance via single-cell transcriptomics of their tumors;</li>
-                        <ul>
-                            <li>Co-developed a pipeline to build drug response models which can predict patient treatment response based on their single cell RNAseq data and its applications;</li>
-                            <li>Built machine learning models from large-scale pharmacological screens performed in cancer cell lines(PRISM, GDSC) where both bulk and single-cell expression are available to predict
-                                drug response at single cell resolution;</li>
-                            <li>Applied the machine learning models to predict the response to single and combination treatments in cancer cell lines and patient-tumor-derived primary cells based on their single-cell
-                                expression profiles;</li>
-                            <li>Applied the machine learning models to stratify responders vs. non-responders to combination therapies in recently published clinical trials;</li>
-                            <li>Predicted personalized drug combinations that target distinct tumor clones to improve patient response;</li>
-                        </ul>
-                        <li>The landscape of receptor-mediated precision cancer combination therapy via a single-cell perspective;</li>
-                        <ul>
-                            <li>Collaborated with computer science graduate students to maintain the MadHitter software and analyze multiple scRNAseq cancer datasets to understand the landscape of combination therapy. (resulted in
-                                publication)
-                            <li>Collaborated with computer science graduate students to maintain the MadHitter software;</li>
-                                Contributed to the documentation of the software and installation;</li>
-                            <li>Analyzed multiple scRNAseq datasets to identify the optimal set of surface receptor gene targets which maximize the killing of cancer cells and limit the killing of normal cells at a patient
-                                and cohort level</li>
-                            <li>Identified cell surface receptor genes which are lowly expressed in healthy tissue by mining GTEX and Human Protein Atlas</li>
-                            <li>Generated reports summarizing the results to collaborators and presented the methods in different conferences and meetings</li>
-                        </ul>
-                    </ul>
-                </p>
-
-                <h2>Associate Applications System Analyst</h2>
-                <p><strong>Institution:</strong> <a href="https://www.mdanderson.org/research/departments-labs-institutes/departments-divisions/bioinformatics-and-computational-biology.html" target="_blank">Bioinformatics and Computational Biology Department, M.D. Anderson Cancer Center,
-                    Houston, Texas, USA</a><br />
-                   <strong>Period:</strong> June 2012 <strong>-</strong> June 2013<br />
-                    <strong>Key workstreams:</strong>
-                    <ul style="margin-top:-1em">
-                        <li> Co-implemented Pipeline for RNASeq Data Analysis (PRADA) to estimate gene expression and identify
-                            gene fusion events;</li>
-                        <ul>
-                            <li>Develop standalone version of PRADA (Pipeline for RNASeq Data Analysis);</li>
-                            <li>Create and maintain documentation and Sourceforge page for PRADA. Add new modules and
-                                analyze data samples;</li>
-                            <li>Helped analyze multiple TCGA datasets, which resulted in multiple publications;</li>
-                        </ul>
-                    </ul>
-                </p>
-
-            </dd>
-
-            <dd class="clear"></dd>
-            
-            <dt id="education">Education</dt>
-            <dd>
-                <h2>Ph.D. in Bioinformatics and Genomics</h2>
-                <p><strong>Institution:</strong> The Pennsylvania State University, State College, PA, USA<br />
-                    <strong>Title:</strong> Evolution of Y Chromosome Ampliconic Genes in Great Apes<br />
-                    <strong>Period:</strong> Aug 2013 <strong>-</strong> Jan 2020<br /></p>
-                <h2>M.Sc. in Bioinformatics</h2>
-                <p><strong>Institution:</strong> The University of Texas at El Paso, El Paso, TX, USA <br />
-                    <strong>Period:</strong> Aug 2009 <strong>-</strong> Aug 2011<br/></p>
-                   
-                <h2>B.Tech. in Bioinformatics</h2>
-                <p><strong>Institution:</strong> Sathyabama University, Chennai, TN, India<br />
-                    <strong>Period:</strong> May 2005 <strong>-</strong> May 2009<br /> </p>
-            </dd>
-
-            <dd class="clear"></dd>
-
-            <dt>Thesis projects</dt>
-            <dd>
-            
-                <ol style="margin-top:-1em">
-                    <li>Dosage regulation, and variation in gene expression and copy number of human Y chromosome
-                        ampliconic genes</li>
-                    <ul>
-                        <li>Studied the relationship between the copy number of Y chromosome ampliconic gene families and their
-                            expression in humans;</li>
-                        <li>Developed a novel computational tool Ampliconic Copy Number Estimator (AmpliCoNE) that
-                            utilizes read sequencing depth information from whole genome sequencing data to estimate Y
-                            ampliconic gene copy number per family;</li>
-                        <li>Analyzed whole genome sequencing and testis expression data from GTEx to estimate the copy
-                            number and gene expression of ampliconic genes;</li>
-                        <li>Determined the Y haplogroup of the GTEx samples using Yhaplo;</li>
-                    </ul>
-
-                    <li>Ampliconic genes on the great ape Y chromosome</li>
-                    <ul>
-                        <li>Collaborated with biologists to study the relationship between the copy number of Y chromosome
-                            ampliconic gene families and their expression in great apes;</li>
-                        <li>Constructed Y chromosome specific great ape phylogenetic tree;</li>
-                        <li>Assembled the transcripts of Y ampliconic gene families for each great ape species and estimated their gene expression;</li>
-                        <li>Tested the conservation of gene expression and copy number of ampliconic gene families
-                            across great apes;</li>
-                    </ul>
-                
-                    <li>Dynamic evolution of great ape Y chromosomes</li>
-                    <ul>
-                        <li>Co-implemented the project in generating assemblies of bonobo and orangutan Y's from short and long
-                            sequencing reads and aligned them with the publicly available human, chimpanzee, and gorilla Y
-                            assemblies to understand their evolution;</li>
-                        <li>Generated whole chromosome alignments of the great ape Y chromosomes;</li>
-                        <li>Predicted genes in Y chromosome assemblies of bonobo and orangutans using AUGUSTUS;</li>
-                        <li>Reconstructed the Y chromosome gene content evolution in great apes by comparing genes
-                            found in individual species;</li>
-                        <li>Estimated the human and chimpanzee palindromic sequences read depth in bonobo, gorilla and
-                            orangutan Y’s;</li>
-                        <li>Searched for regulatory factor binding sites in human palindromes P6 and P7 using ENCODE
-                            dataset;</li>
-                    </ul>
-                </ol>
-            </dd>
-
-            <dd class="clear"></dd>
-
-            <dt>Developed tools (a.k.a Portfolio)</dt>
-            <dd>
-                <p><strong><a href="https://github.com/ruppinlab/PERCEPTION">PERCEPTION - <u>PER</u>sonalized single-<u>C</u>ell <u>E</u>xpression-based <u>P</u>lanning for <u>T</u>reatments <u>I</u>n <u>ON</u>cology </a></strong><br />
-                <strong>Description:</strong> R Workbooks for generating drug response prediction models. I developed the pipeline during my posdoc. I left the lab during the publication review process, you will find my name in the publication and not in the public repo. </p>
-                <p><strong><a href="https://github.com/makovalab-psu/AmpliCoNE-tool">AmpliCoNE - <u>Ampli</u>conic <u>Co</u>py <u>N</u>umber <u>E</u>stimator </a></strong><br />
-                <strong>Description:</strong> A tool to estimate the copy number of ampliconic gene families in human Y chromosome using Illumina whole genome sequencing data. I developed the tool as part of my PhD thesis work. Written in Python.</p>
-                <p><strong><a href="http://sourceforge.net/projects/prada/ ">PRADA - <u>P</u>ipeline for <u>R</u>N<u>A</u>Seq <u>D</u>ata <u>A</u>nalysis</a></strong><br />
-                <strong>Description:</strong> End to end pipeline to  process and analyze gene expression estimates, gene fusion identification, and supervised intragenic deletion identification. I was part of the team that developed the pipeline during my tenure at MDACC. Written in Python.</p>
-            </dd>
-            
-            <dd class="clear"></dd>
-
-            <dt>Technical skills</dt>
-            <dd>
-                <p><strong>Statistics:</strong> Strong knowledge of statiscal methods applied to bioinformatics.</p>
-
-                <h2>Programming languanges:</h2>
-                    <ul>
-                    <li><strong>Python</strong></li>
-                        <ul style="margin-bottom:-0.1em;">
-                        <li><i>data analysis libraries (e.g. pysam, biopython, numpy, pandas, matplotlib, scikit-learn, etc.)</i></li>
-                        </ul>
-                    <li><strong>R</strong></li>
-                    <ul style="margin-bottom:-0.1em;">
-                        <li><i>data analysis libraries (e.g. tidyverse, reshape, ggplot2, data.table, caret, DESeq2, fgsea,  etc.)</i></li>
-                        <li><i>single cell analysis libraries (e.g. seurat, harmony, infercnv, scRepertoire, etc.)</i></li>
-                        </ul>
-                    <li><strong>Perl</strong></li>
-                    </ul>
-
-                <h2>Cloud environments:</h2>
-                    <ul>
-                    <li><strong>AWS</strong></li>
-                    </ul>
-
-             
- 
-                <h2>Pipeline</h2>
-                    <ul>
-                    <li><strong>Nextflow</strong></li>
-                    <li><strong>Docker</strong></li>
-                    <li><strong>Apptainer</strong></li>
-                    </ul>
-            </dd>            
-            <dd class="clear"></dd>
-
-            <dt id="publications">Publications</dt>
-            <dd>
-                <ol>
-                    <li>Sinha S, <strong>Vegesna, R.</strong>, Dhruba SR, Wu W, Lucas Kerr D, Stroganov OV, et al (2022).
-                        <i>Predicting patient treatment response and resistance via single-cell transcriptomics of
-                        their tumors.</i> Biorxiv http://dx.doi.org/10.1101/2022.01.11.475728</li>
-                    <li>Ahmadi S, Sukprasert P, <strong>Vegesna, R.</strong>, Sinha S, Schischlik F, Artzi N, Khuller S, Schaffer
-                        AA, Ruppin E (2022). <i>The Landscape of Receptor-Mediated Precision Cancer
-                        Combination Therapy Via a Single-Cell Perspective.</i> Nature Communications 13.1
-                        (2022): 1613.</li>
-                    <li>Cechova, M., <strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Harris, R. S., Chen, D., Rangavittal, S.,
-                        ... & Makova, K. D. (2020). <i>Dynamic evolution of great ape Y chromosomes.</i> PNAS, 117
-                        (42) 26273-26280;</li>
-                    <li><strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Ryder, O.A., Campos-Sánchez, R., Medvedev, P.,
-                        DeGiorgio, M., Makova, K. D. (2020). <i>Ampliconic genes on the great ape Y
-                        chromosomes: Rapid evolution of copy number but conservation of expression levels.</i>
-                        Genome Biology and Evolution.</li>
-                    <li><strong>Vegesna, R.</strong>, Tomaszkiewicz, M., Medvedev, P., Makova, K. D. (2019). <i>Dosage
-                        regulation, and variation in gene expression and copy number of human Y chromosome
-                        ampliconic genes.</i> PLoS genetics, 15(9), e1008369.</li>
-                    <li>Warris, S., Schijlen, E., van de Geest, H., <strong>Vegesna, R.</strong>, Hesselink, T., te Lintel Hekkert,
-                        B., ... & de Ridder, D. (2018). <i>Correcting palindromes in long reads after whole-genome
-                        amplification.</i> BMC genomics, 19(1), 798.</li>
-                    <li>Torres-García, W., Zheng, S., Sivachenko, A., <strong>Vegesna, R.</strong>, Wang, Q., Yao, R., ... &
-                        Verhaak, R. G. (2014). <i>PRADA: pipeline for RNA sequencing data analysis.</i>
-                        Bioinformatics, 2014.</li>
-                    <li>Yoshihara, K., Wang, Q., Torres-García, W., Zheng, S., <strong>Vegesna, R.</strong>, Kim, H., &
-                        Verhaak, R. G. (2014). <i>The landscape and therapeutic relevance of cancer associated
-                        transcript fusions.</i> Oncogene, 2014.</li>
-                    <li>Zheng, S., Fu, J., <strong>Vegesna, R.</strong>, Mao, Y., Heathcock, L. E., Torres-Garcia, W., ... &
-                        Verhaak, R. G. (2013). <i>A survey of intragenic breakpoints in glioblastoma identifies a
-                        distinct subset associated with poor survival.</i> Genes & development, 2013.</li>
-                    <li>Yoshihara, K., Shahmoradgoli, M., Martínez, E., <strong>Vegesna, R.</strong>, Kim, H., Torres-Garcia,
-                        W., ... & Verhaak, R. G. (2013). <i>Inferring tumour purity and stromal and immune cell
-                        admixture from expression data.</i> Nature communications, 2013.</li>
-                    <li>Cancer Genome Atlas Research Network. (2013).<i> Comprehensive molecular
-                        characterization of clear cell renal cell carcinoma.</i> Nature, 2013.</li>
-                    <li>Brennan, C. W., Verhaak, R. G., McKenna, A., Campos, B., Noushmehr, H., Salama, S.
-                        R., ... & Wilson, R. (2013). <i>The somatic genomic landscape of glioblastoma.</i> Cell, 2013.
-                    <li>Sirimulla, S., Bailey, J. B., <strong>Vegesna, R.</strong>, & Narayan, M. (2013). <i>Halogen Interactions in
-                        Protein–Ligand Complexes: Implications of Halogen Bonding for Rational Drug Design.</i>
-                        Journal of chemical information and modeling, 2013.</li>
-                    <li>Yehdego, D. T., Zhang, B., Taufer, M., Kodimala, V. K. R., <strong>Vegesna, R.</strong>, Viswakula, S.,
-                        ... & Leung, M. Y. (2012, October). <i>Secondary structure predictions for long RNA
-                        sequences based on inversion excursions: preliminary results.</i> In Proceedings of the
-                        ACM Conference on Bioinformatics, Computational Biology and Biomedicine (pp.
-                        545-547). ACM 2012.</li>
-
-                </ol>
-            </dd>
-            <div class="clear"></div>
-            
-            <p>  
-                
-            
-            </p>
-        </dl>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>Rahul Vegesna</a>
+    <nav class="nav-links" id="navlinks" aria-label="Section navigation">
+      <a href="#experience">experience</a>
+      <a href="#tools">tools</a>
+      <a href="#education">education</a>
+      <a href="#skills">skills</a>
+      <a href="#publications">publications</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
-</body>
+  </div>
+</header>
 
+<main>
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Bioinformatics · Data Science · Genomics</p>
+    <h1>Rahulsimham Vegesna<span style="color:var(--accent)">.</span></h1>
+    <p class="role">Bioinformatics Scientist, Ph.D.</p>
+    <p class="lede">
+      I turn large, messy multiomic data into decisions — designing reproducible pipelines and
+      machine-learning models across cancer, immunology, and genome evolution. My work spans
+      neoantigen discovery, single-cell drug-response prediction, and evolutionary
+      analysis, end to end from raw sequencing reads to results a wet-lab or clinical team can
+      act on. I'm fluent in R and Python, and equally at home on cloud and high-performance computing.
+    </p>
+
+    <div class="contact">
+      <button class="mail-btn" type="button" data-mail data-u="v.rahul.simham" data-d="gmail" data-x="com" aria-label="Reveal email address and compose a message">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        <span class="mail-text">v.rahul.simham [at] gmail [dot] com</span>
+      </button>
+      <div class="socials">
+        <a href="https://github.com/rahulsimham/" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.61 8.21 11.17.6.11.82-.25.82-.56v-2.2c-3.34.7-4.04-1.42-4.04-1.42-.55-1.36-1.33-1.73-1.33-1.73-1.09-.73.08-.72.08-.72 1.2.08 1.83 1.21 1.83 1.21 1.07 1.79 2.81 1.27 3.5.97.11-.76.42-1.27.76-1.56-2.67-.3-5.47-1.3-5.47-5.79 0-1.28.47-2.33 1.24-3.15-.13-.3-.54-1.5.11-3.13 0 0 1-.32 3.3 1.2a11.6 11.6 0 0 1 6 0c2.3-1.52 3.3-1.2 3.3-1.2.65 1.63.24 2.83.12 3.13.77.82 1.23 1.87 1.23 3.15 0 4.5-2.81 5.48-5.49 5.78.43.36.81 1.08.81 2.18v3.23c0 .31.21.68.83.56A12.3 12.3 0 0 0 24 12.29C24 5.78 18.63.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://scholar.google.com.br/citations?user=MThf5MUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.84 3.77A8 8 0 0 1 12 9a8 8 0 0 1 7.16 4.27L24 9.5 12 0Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rahulsimham-vegesna-74809b22" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="https://twitter.com/rahul_vegesna" target="_blank" rel="noopener" aria-label="X / Twitter" title="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.31l-7.23 8.26L22.84 22h-6.66l-5.22-6.82L4.99 22H1.68l7.73-8.84L1.16 2h6.83l4.71 6.23L18.24 2Zm-1.16 18h1.83L7.01 3.9H5.04L17.08 20Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="ribbon ribbon--hero" aria-hidden="true"></div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">15</div><div class="l">Publications</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Open-source tools</div></div>
+      <div class="stat"><div class="n">10x · WGS</div><div class="l">Single-cell + genomic scale</div></div>
+      <div class="stat"><div class="n">Cancer · Immuno · Evo</div><div class="l">Research domains</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>Experience</h2><span class="rule"></span></div>
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:26px"></div>
+
+    <div class="xp">
+      <div class="xp-item">
+        <div class="xp-period">January 2025 — Present</div>
+        <h3 class="xp-role">Senior Scientist, Data, AI, and Genome Sciences</h3>
+        <p class="xp-org"><a href="https://www.merck.com/" target="_blank" rel="noopener">Merck</a> — Boston, MA, USA</p>
+        <ul>
+          <li>As part of the individualized neoantigen therapy (INT) program, run simulations to assess the impact of planned algorithmic updates on neoantigen selection.</li>
+          <li>Process clinical whole-exome sequencing (WES) and RNA-seq data.</li>
+          <li>Build in-house Nextflow pipelines for ctDNA, methylation, and exploratory assays, replicating vendor-generated reports.</li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-period">April 2022 — Dec 2024</div>
+        <h3 class="xp-role">Scientist II, Bioinformatics &amp; Data Science</h3>
+        <p class="xp-org"><a href="https://gritstonebio.com/platforms/" target="_blank" rel="noopener">Gritstone Bio</a> — Boston, MA, USA</p>
+        <ul>
+          <li>Lead developer and analyst on discovery of shared non-canonical neoantigens (alternative splicing, nuORFs):
+            <ul>
+              <li>Ran comprehensive literature reviews and identified public databases of processed tumor and normal samples (TCGA, GTEx, CCLE).</li>
+              <li>Replicated database-specific pipelines in-house to process hundreds of internal datasets.</li>
+              <li>Mined public and in-house genomic databases to identify tumor-specific shared events across patients (frameshift mutations, alternative splicing, lncRNA).</li>
+              <li>Partnered with Immunology, Proteomics Mass-Spec, and NGS teams on immunopeptidomic validations.</li>
+            </ul>
+          </li>
+          <li>Lead bioinformatics analyst on single-cell transcriptomics studies:
+            <ul>
+              <li>Built a Nextflow pipeline handling 10x single-cell gene expression (DGE) and T-cell receptor (TCR) sequencing FASTQs across multiple time points.</li>
+              <li>Implemented modules that process DGE and TCR data independently, then integrate them for visualization.</li>
+              <li>Applied the pipeline to clinical samples to discover TCRs reacting to antigens of interest.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-period">April 2020 — April 2022</div>
+        <h3 class="xp-role">Postdoctoral Fellow</h3>
+        <p class="xp-org"><a href="https://ccr.cancer.gov/cancer-data-science-laboratory" target="_blank" rel="noopener">Cancer Data Science Lab, National Cancer Institute</a> — Bethesda, MD, USA</p>
+        <ul>
+          <li>Predicted patient treatment response and resistance from single-cell transcriptomics of tumors:
+            <ul>
+              <li>Co-developed a pipeline that builds drug-response models predicting patient response from single-cell RNA-seq data.</li>
+              <li>Trained ML models on large-scale pharmacological screens (PRISM, GDSC) with bulk and single-cell expression to predict drug response at single-cell resolution.</li>
+              <li>Predicted response to single and combination treatments in cancer cell lines and patient-derived primary cells.</li>
+              <li>Stratified responders vs. non-responders to combination therapies in recently published clinical trials.</li>
+              <li>Proposed personalized drug combinations targeting distinct tumor clones to improve response.</li>
+            </ul>
+          </li>
+          <li>Mapped the landscape of receptor-mediated precision cancer combination therapy at single-cell resolution:
+            <ul>
+              <li>Maintained the MadHitter software and contributed to its documentation and installation (published).</li>
+              <li>Analyzed multiple scRNA-seq cancer datasets to find optimal surface-receptor gene targets that maximize cancer-cell killing while sparing normal cells, at the patient and cohort level.</li>
+              <li>Identified surface-receptor genes with low expression in healthy tissue by mining GTEx and the Human Protein Atlas.</li>
+              <li>Generated result summaries for collaborators and presented methods at conferences and meetings.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-period">June 2012 — June 2013</div>
+        <h3 class="xp-role">Associate Applications System Analyst</h3>
+        <p class="xp-org"><a href="https://www.mdanderson.org/research/departments-labs-institutes/departments-divisions/bioinformatics-and-computational-biology.html" target="_blank" rel="noopener">Bioinformatics &amp; Computational Biology, MD Anderson Cancer Center</a> — Houston, TX, USA</p>
+        <ul>
+          <li>Co-implemented PRADA (Pipeline for RNA-seq Data Analysis) to estimate gene expression and identify gene-fusion events:
+            <ul>
+              <li>Developed the standalone version of PRADA and added new modules.</li>
+              <li>Created and maintained documentation and the SourceForge project page.</li>
+              <li>Helped analyze multiple TCGA datasets, contributing to several publications.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Tools &amp; Portfolio</h2><span class="rule"></span></div>
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:26px"></div>
+
+    <div class="tools">
+      <a class="tool" href="https://github.com/ruppinlab/PERCEPTION" target="_blank" rel="noopener">
+        <div class="tool-name">PERCEPTION <span class="arrow">↗</span></div>
+        <p class="tool-sub">Single-cell · drug response · R</p>
+        <p class="tool-desc">PERsonalized single-Cell Expression-based Planning for Treatments In ONcology — R workbooks that build drug-response prediction models. Developed during my postdoc; I left the lab during the review process, so my name appears in the publication rather than the public repo.</p>
+        <div class="tool-tags"><span class="chip">R</span><span class="chip">scRNA-seq</span><span class="chip">ML</span></div>
+      </a>
+
+      <a class="tool" href="https://github.com/makovalab-psu/AmpliCoNE-tool" target="_blank" rel="noopener">
+        <div class="tool-name">AmpliCoNE <span class="arrow">↗</span></div>
+        <p class="tool-sub">Copy number · Y chromosome · Python</p>
+        <p class="tool-desc">Ampliconic Copy Number Estimator — estimates copy number of ampliconic gene families on the human Y chromosome from Illumina whole-genome sequencing data. Built as part of my Ph.D. thesis work.</p>
+        <div class="tool-tags"><span class="chip">Python</span><span class="chip">WGS</span><span class="chip">Genomics</span></div>
+      </a>
+
+      <a class="tool" href="http://sourceforge.net/projects/prada/" target="_blank" rel="noopener">
+        <div class="tool-name">PRADA <span class="arrow">↗</span></div>
+        <p class="tool-sub">RNA-seq · gene fusion · Python</p>
+        <p class="tool-desc">Pipeline for RNA-seq Data Analysis — end-to-end processing for expression estimates, gene-fusion identification, and supervised intragenic-deletion detection. Co-developed during my tenure at MD Anderson.</p>
+        <div class="tool-tags"><span class="chip">Python</span><span class="chip">RNA-seq</span><span class="chip">Fusions</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Education</h2><span class="rule"></span></div>
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:26px"></div>
+
+    <div class="edu">
+      <div class="edu-item">
+        <div class="edu-period">Aug 2013 — Jan 2020</div>
+        <div>
+          <h3 class="edu-deg">Ph.D. in Bioinformatics &amp; Genomics</h3>
+          <p class="edu-inst">The Pennsylvania State University — State College, PA, USA</p>
+          <p class="edu-extra">Dissertation: Evolution of Y Chromosome Ampliconic Genes in Great Apes</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">Aug 2009 — Aug 2011</div>
+        <div>
+          <h3 class="edu-deg">M.Sc. in Bioinformatics</h3>
+          <p class="edu-inst">The University of Texas at El Paso — El Paso, TX, USA</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">May 2005 — May 2009</div>
+        <div>
+          <h3 class="edu-deg">B.Tech. in Bioinformatics</h3>
+          <p class="edu-inst">Sathyabama University — Chennai, TN, India</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><h2>Technical Skills</h2><span class="rule"></span></div>
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:26px"></div>
+
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tool-tags">
+          <span class="chip">Python</span><span class="chip">R</span><span class="chip">Perl</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Python libraries</h3>
+        <div class="tool-tags">
+          <span class="chip">pysam</span><span class="chip">biopython</span><span class="chip">numpy</span><span class="chip">pandas</span><span class="chip">matplotlib</span><span class="chip">scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>R libraries</h3>
+        <div class="tool-tags">
+          <span class="chip">tidyverse</span><span class="chip">ggplot2</span><span class="chip">data.table</span><span class="chip">caret</span><span class="chip">DESeq2</span><span class="chip">fgsea</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Single-cell analysis</h3>
+        <div class="tool-tags">
+          <span class="chip">Seurat</span><span class="chip">harmony</span><span class="chip">inferCNV</span><span class="chip">scRepertoire</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Pipelines &amp; containers</h3>
+        <div class="tool-tags">
+          <span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">Apptainer</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; HPC</h3>
+        <div class="tool-tags">
+          <span class="chip">AWS</span><span class="chip">HPC clusters</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Domains</h3>
+        <div class="tool-tags">
+          <span class="chip">Cancer genomics</span><span class="chip">Immunology</span><span class="chip">Evolutionary biology</span><span class="chip">Multiomics</span><span class="chip">Statistics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><h2>Publications</h2><span class="rule"></span></div>
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:20px"></div>
+    <p class="pub-note">15 publications and preprints · author name in bold. Full list also on
+      <a href="https://scholar.google.com.br/citations?user=MThf5MUAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+
+    <ol class="pubs">
+      <li>Sprague D, Hart MG, Klein J, Kounlavouth S, <span class="me">Vegesna R</span>, Rotunno M, et al. <span class="ttl">A novel HLA Class II presentation prediction algorithm deciphers immunogenic CD4 epitopes specific to KRAS G12C.</span> <span class="venue">bioRxiv, 2024.</span> <a href="https://doi.org/10.1101/2024.12.06.627073" target="_blank" rel="noopener">doi:10.1101/2024.12.06.627073</a></li>
+      <li>Sinha S, <span class="me">Vegesna R</span>, Mukherjee S, Kammula AV, Dhruba SR, et al. <span class="ttl">PERCEPTION predicts patient response and resistance to treatment using single-cell transcriptomics of their tumors.</span> <span class="venue">Nature Cancer 5(6):938–952, 2024.</span> <a href="https://doi.org/10.1038/s43018-024-00756-7" target="_blank" rel="noopener">doi:10.1038/s43018-024-00756-7</a></li>
+      <li>Ahmadi S, Sukprasert P, <span class="me">Vegesna R</span>, Sinha S, Schischlik F, Artzi N, Khuller S, Schäffer AA, Ruppin E. <span class="ttl">The landscape of receptor-mediated precision cancer combination therapy via a single-cell perspective.</span> <span class="venue">Nature Communications 13(1):1613, 2022.</span></li>
+      <li>Cechova M, <span class="me">Vegesna R</span>, Tomaszkiewicz M, Harris RS, Chen D, Rangavittal S, et al. <span class="ttl">Dynamic evolution of great ape Y chromosomes.</span> <span class="venue">PNAS 117(42):26273–26280, 2020.</span></li>
+      <li><span class="me">Vegesna R</span>, Tomaszkiewicz M, Ryder OA, Campos-Sánchez R, Medvedev P, DeGiorgio M, Makova KD. <span class="ttl">Ampliconic genes on the great ape Y chromosomes: rapid evolution of copy number but conservation of expression levels.</span> <span class="venue">Genome Biology and Evolution, 2020.</span></li>
+      <li><span class="me">Vegesna R</span>, Tomaszkiewicz M, Medvedev P, Makova KD. <span class="ttl">Dosage regulation, and variation in gene expression and copy number of human Y chromosome ampliconic genes.</span> <span class="venue">PLoS Genetics 15(9):e1008369, 2019.</span></li>
+      <li>Warris S, Schijlen E, van de Geest H, <span class="me">Vegesna R</span>, Hesselink T, te Lintel Hekkert B, et al. <span class="ttl">Correcting palindromes in long reads after whole-genome amplification.</span> <span class="venue">BMC Genomics 19(1):798, 2018.</span></li>
+      <li>Torres-García W, Zheng S, Sivachenko A, <span class="me">Vegesna R</span>, Wang Q, Yao R, et al. <span class="ttl">PRADA: pipeline for RNA sequencing data analysis.</span> <span class="venue">Bioinformatics, 2014.</span></li>
+      <li>Yoshihara K, Wang Q, Torres-García W, Zheng S, <span class="me">Vegesna R</span>, Kim H, et al. <span class="ttl">The landscape and therapeutic relevance of cancer-associated transcript fusions.</span> <span class="venue">Oncogene, 2014.</span></li>
+      <li>Zheng S, Fu J, <span class="me">Vegesna R</span>, Mao Y, Heathcock LE, Torres-Garcia W, et al. <span class="ttl">A survey of intragenic breakpoints in glioblastoma identifies a distinct subset associated with poor survival.</span> <span class="venue">Genes &amp; Development, 2013.</span></li>
+      <li>Yoshihara K, Shahmoradgoli M, Martínez E, <span class="me">Vegesna R</span>, Kim H, Torres-Garcia W, et al. <span class="ttl">Inferring tumour purity and stromal and immune cell admixture from expression data.</span> <span class="venue">Nature Communications, 2013.</span></li>
+      <li>Cancer Genome Atlas Research Network. <span class="ttl">Comprehensive molecular characterization of clear cell renal cell carcinoma.</span> <span class="venue">Nature, 2013.</span></li>
+      <li>Brennan CW, Verhaak RG, McKenna A, Campos B, Noushmehr H, Salama SR, et al. <span class="ttl">The somatic genomic landscape of glioblastoma.</span> <span class="venue">Cell, 2013.</span></li>
+      <li>Sirimulla S, Bailey JB, <span class="me">Vegesna R</span>, Narayan M. <span class="ttl">Halogen interactions in protein–ligand complexes: implications of halogen bonding for rational drug design.</span> <span class="venue">Journal of Chemical Information and Modeling, 2013.</span></li>
+      <li>Yehdego DT, Zhang B, Taufer M, Kodimala VKR, <span class="me">Vegesna R</span>, Viswakula S, et al. <span class="ttl">Secondary structure predictions for long RNA sequences based on inversion excursions: preliminary results.</span> <span class="venue">ACM Conf. on Bioinformatics, Computational Biology and Biomedicine, 545–547, 2012.</span></li>
+    </ol>
+
+    <h3 class="sub-head">Patents</h3>
+    <ol class="pubs">
+      <li>Ruppin E, Sinha S, <span class="me">Vegesna R</span>, Schäffer AA. <span class="ttl">Methods of predicting patient treatment response and resistance via single-cell transcriptomics of their tumors.</span> <span class="venue">US Patent Application No. 18/727,094.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="ribbon ribbon--divider" aria-hidden="true" style="margin-bottom:28px; opacity:0.5"></div>
+    <div class="foot-inner">
+      <div>
+        <div style="font-family:var(--display); font-weight:600; font-size:20px; margin-bottom:6px;">Let's talk.</div>
+        <button class="mail-btn" type="button" data-mail data-u="v.rahul.simham" data-d="gmail" data-x="com" style="margin-top:4px;" aria-label="Reveal email address and compose a message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span class="mail-text">v.rahul.simham [at] gmail [dot] com</span>
+        </button>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/rahulsimham/" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.61 8.21 11.17.6.11.82-.25.82-.56v-2.2c-3.34.7-4.04-1.42-4.04-1.42-.55-1.36-1.33-1.73-1.33-1.73-1.09-.73.08-.72.08-.72 1.2.08 1.83 1.21 1.83 1.21 1.07 1.79 2.81 1.27 3.5.97.11-.76.42-1.27.76-1.56-2.67-.3-5.47-1.3-5.47-5.79 0-1.28.47-2.33 1.24-3.15-.13-.3-.54-1.5.11-3.13 0 0 1-.32 3.3 1.2a11.6 11.6 0 0 1 6 0c2.3-1.52 3.3-1.2 3.3-1.2.65 1.63.24 2.83.12 3.13.77.82 1.23 1.87 1.23 3.15 0 4.5-2.81 5.48-5.49 5.78.43.36.81 1.08.81 2.18v3.23c0 .31.21.68.83.56A12.3 12.3 0 0 0 24 12.29C24 5.78 18.63.5 12 .5Z"/></svg></a>
+        <a href="https://scholar.google.com.br/citations?user=MThf5MUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.84 3.77A8 8 0 0 1 12 9a8 8 0 0 1 7.16 4.27L24 9.5 12 0Z"/></svg></a>
+        <a href="https://www.linkedin.com/in/rahulsimham-vegesna-74809b22" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a href="https://twitter.com/rahul_vegesna" target="_blank" rel="noopener" aria-label="X / Twitter" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.31l-7.23 8.26L22.84 22h-6.66l-5.22-6.82L4.99 22H1.68l7.73-8.84L1.16 2h6.83l4.71 6.23L18.24 2Zm-1.16 18h1.83L7.01 3.9H5.04L17.08 20Z"/></svg></a>
+      </div>
+    </div>
+    <p class="foot-meta">© <span id="year"></span> Rahulsimham Vegesna · Bioinformatics Scientist, Ph.D.</p>
+  </div>
+</footer>
+</main>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Email: assembled only on click, never present as readable text in the HTML source
+  document.querySelectorAll('[data-mail]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var addr = btn.dataset.u + '@' + btn.dataset.d + '.' + btn.dataset.x;
+      window.location.href = 'mailto:' + addr;
+    });
+  });
+
+  // Build the nucleotide ribbons procedurally
+  (function () {
+    const bases = ['a','t','g','c'];
+    function makeRibbon(len) {
+      let html = '';
+      for (let i = 0; i < len; i++) {
+        const b = bases[Math.floor(Math.random() * 4)];
+        html += '<span class="' + b + '">' + b.toUpperCase() + '</span>';
+      }
+      return html;
+    }
+    document.querySelectorAll('.ribbon').forEach(function (el) {
+      el.innerHTML = makeRibbon(220);
+    });
+  })();
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', function () {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Active section highlighting
+  const navMap = {};
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    navMap[a.getAttribute('href').slice(1)] = a;
+  });
+  const obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        Object.values(navMap).forEach(function (a) { a.classList.remove('active'); });
+        const id = e.target.id;
+        if (navMap[id]) navMap[id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['experience','tools','education','skills','publications','contact'].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+</script>
+</body>
 </html>
